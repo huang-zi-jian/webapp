@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据分析</title>
+    <style type="text/css">
+         .Box{
+        margin: 0 auto;
+        background: url(../static/background/background_5.jpg) no-repeat;
+        background-size: cover;
+        }
+
+        .analyse-box{
+        width:280px;
+        position:absolute;
+        top:40%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        color:black;
+        }
+
+        .analyse-box h1{
+        front-size:50px;
+        border-bottom:5px solid #4caf50;
+        margin-bottom:20px;
+        padding:13px 0;
+
+        }
+
+        .form-text{
+        width:100%;
+        overflow: hidden;
+        font-size:20px;
+
+        padding:8px 0;
+        margin:8px 0;
+        border-bottom:5px solid #4caf50;
+        }
+
+        .form-control{
+        width:200px;
+        height:30px;
+        }
+
+
+
+    </style>
+
+</head>
+<body class="Box">
+<div class="analyse-box">
+    <h1>Analyse</h1>
+    <div class="form-text">
+<form method="post">
+    <br>
+    {{analyse_surface_form.csrf_token()}}
+    <p>{{analyse_surface_form.city.label}}{{analyse_surface_form.city}}</p>
+    <hr>
+    <p>{{analyse_surface_form.keyword}}</p>
+    <hr>
+    <p>{{analyse_surface_form.submit}}</p>
+
+    {% for message in get_flashed_messages() %}
+        {{ message }}<br>
+    {% endfor %}
+
+</form>
+        </div>
+
+    </div>
+
+</body>
+</html>

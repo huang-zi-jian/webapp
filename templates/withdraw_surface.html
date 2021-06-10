@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注销</title>
+    <style type="text/css">
+
+        .Box{
+        margin: 0 auto;
+        background: url(../static/background/background_1.jpg) no-repeat;
+        background-size: cover;
+        }
+
+        .form-control{
+        width:200px;
+        height:30px;
+        }
+
+        .withdraw-box{
+        width:280px;
+        position:absolute;
+        top:40%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        color:white;
+        }
+
+        .withdraw-box h1{
+        front-size:50px;
+        border-bottom:5px solid #4caf50;
+        margin-bottom:20px;
+        padding:13px 0;
+
+        }
+    </style>
+</head>
+<body class="Box">
+<div class="withdraw-box">
+    <h1>Withdraw</h1>
+    <div class="form-text">
+    <form method="post">
+         <br>
+    {{withdraw_surface_form.csrf_token()}}
+    <p>{{withdraw_surface_form.user}}</p>
+    <hr>
+    <p>{{withdraw_surface_form.password}}</p>
+    <hr>
+    <p>{{withdraw_surface_form.submit}}</p>
+    {% for message in get_flashed_messages() %}
+        {{ message }}<br>
+    {% endfor %}
+    </form>
+    </div>
+        </div>
+
+</center>
+</body>
+</html>

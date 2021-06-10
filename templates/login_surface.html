@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <style type="text/css">
+        .Box{
+        margin: 0 auto;
+        background: url(../static/background/background_2.jpg) no-repeat;
+        background-size: cover;
+        }
+
+        .login-box{
+        width:280px;
+        position:absolute;
+        top:40%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        color:white;
+        }
+
+        .login-box h1{
+        front-size:50px;
+        border-bottom:5px solid #4caf50;
+        margin-bottom:20px;
+        padding:13px 0;
+
+        }
+
+        .form-text{
+        width:100%;
+        overflow: hidden;
+        font-size:20px;
+
+        padding:8px 0;
+        margin:8px 0;
+        border-bottom:5px solid #4caf50;
+        }
+
+        .form-control{
+        width:200px;
+        height:30px;
+        }
+
+
+
+    </style>
+</head>
+<body class="Box">
+<div class="login-box">
+    <h1>Login</h1>
+    <div class="form-text">
+<form method="post">
+    <br>
+    {{login_surface_form.csrf_token()}}
+    <p>{{login_surface_form.user}}</p>
+    <p>{{login_surface_form.password}}</p>
+    <p>{{login_surface_form.submit_login}}
+        {#input中的name属性是作为这个标签在和HTML中的名字，value属性值是页面显示的button文本值#}
+    <input name="注册" type="button" value="注册" onclick="location.href='{{url_for('register_surface')}}'">
+    <input name="注销" type="button" value="注销" onclick="location.href='{{url_for('withdraw_surface')}}'">
+    </p>
+
+
+    {% for message in get_flashed_messages() %}
+        {{ message }}<br>
+    {% endfor %}
+</form>
+        </div>
+</div>
+</body>
+</html>
